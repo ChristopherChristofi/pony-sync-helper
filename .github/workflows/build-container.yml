@@ -1,12 +1,12 @@
 name: Verify builder image
 
-on: [push]
+on: pull_request
 
 jobs:
   container:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Build Docker Image
+    - name: Build docker image
       working-directory: ./.ci-dockerfiles/builder
       run: docker build . --file Dockerfile
