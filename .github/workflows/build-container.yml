@@ -1,14 +1,9 @@
-name: Container
+name: Build Container
 
 on: [push]
 
-jobs:
-  container:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Build container
-        working-directory: ./.ci-dockerfiles/builder
-        runs:
-          using: docker
-          image: Dockerfile
+runs-on: ubuntu-latest
+working-directory: ./.ci-dockerfiles/builder
+runs:
+  using: docker
+  image: Dockerfile
