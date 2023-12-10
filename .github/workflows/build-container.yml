@@ -4,10 +4,11 @@ on: [push]
 
 jobs:
   container:
-    name: Build container
     runs-on: ubuntu-latest
-    uses: actions/checkout@v3
-    working-directory: ./.ci-dockerfiles/builder
-    runs:
-      using: docker
-      image: Dockerfile
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build container
+        working-directory: ./.ci-dockerfiles/builder
+        runs:
+          using: docker
+          image: Dockerfile
